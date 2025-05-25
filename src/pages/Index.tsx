@@ -1,14 +1,11 @@
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Download, ExternalLink, Github, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
-
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'skills', 'achievements', 'education', 'contact'];
@@ -22,18 +19,17 @@ const Index = () => {
       });
       if (current) setActiveSection(current);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
   const skills = {
     frontend: ['HTML', 'CSS', 'JavaScript', 'React'],
     programming: ['C++', 'Java', 'Python'],
@@ -41,50 +37,37 @@ const Index = () => {
     subjects: ['Data Structures & Algorithms', 'Operating Systems', 'DBMS', 'OOPs', 'Computer Networks'],
     aptitude: ['Problem Solving', 'Logical Reasoning', 'Quantitative Aptitude']
   };
-
-  const achievements = [
-    {
-      title: "Academic Excellence",
-      description: "CGPA of 9.35 in B.Tech CSE",
-      icon: "🎓"
-    },
-    {
-      title: "Research Publication",
-      description: "Published Research Paper on 'Smart Irrigation System' (IEEE, Springer)",
-      icon: "📚"
-    },
-    {
-      title: "Programming Certifications",
-      description: "Certified in C++, Java, Python, and Cybersecurity",
-      icon: "🏆"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
+  const achievements = [{
+    title: "Academic Excellence",
+    description: "CGPA of 9.35 in B.Tech CSE",
+    icon: "🎓"
+  }, {
+    title: "Research Publication",
+    description: "Published Research Paper on 'Smart Irrigation System' (IEEE, Springer)",
+    icon: "📚"
+  }, {
+    title: "Programming Certifications",
+    description: "Certified in C++, Java, Python, and Cybersecurity",
+    icon: "🏆"
+  }];
+  return <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -20
+          }} animate={{
+            opacity: 1,
+            x: 0
+          }} className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               RG
             </motion.div>
             <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Skills', 'Achievements', 'Education', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`hover:text-blue-400 transition-colors ${
-                    activeSection === item.toLowerCase() ? 'text-blue-400' : 'text-white'
-                  }`}
-                >
+              {['Home', 'About', 'Skills', 'Achievements', 'Education', 'Contact'].map(item => <button key={item} onClick={() => scrollToSection(item.toLowerCase())} className={`hover:text-blue-400 transition-colors ${activeSection === item.toLowerCase() ? 'text-blue-400' : 'text-white'}`}>
                   {item}
-                </button>
-              ))}
+                </button>)}
             </div>
           </div>
         </div>
@@ -95,12 +78,16 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="container mx-auto px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }}>
+            <h1 className="text-6xl mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mx-0 md:text-6xl font-extrabold">
               Rishabh Gupta
             </h1>
             <h2 className="text-2xl md:text-3xl mb-4 text-gray-300">
@@ -110,28 +97,24 @@ const Index = () => {
               Aspiring Front-End Developer | Passionate Learner | DSA & Aptitude Enthusiast
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                onClick={() => scrollToSection('contact')}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg"
-              >
+              <Button onClick={() => scrollToSection('contact')} className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg">
                 Get In Touch
               </Button>
-              <Button 
-                variant="outline" 
-                className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black px-8 py-3 text-lg"
-              >
+              <Button variant="outline" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black px-8 py-3 text-lg">
                 <Download className="mr-2 h-5 w-5" />
                 Download Resume
               </Button>
             </div>
           </motion.div>
           
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-          >
+          <motion.div initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          delay: 1,
+          duration: 0.8
+        }} className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
             <ArrowDown className="animate-bounce text-blue-400" size={32} />
           </motion.div>
         </div>
@@ -140,13 +123,17 @@ const Index = () => {
       {/* About Section */}
       <section id="about" className="py-20 bg-black/20">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }} className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               About Me
             </h2>
@@ -180,49 +167,58 @@ const Index = () => {
       {/* Skills Section */}
       <section id="skills" className="py-20">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }}>
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Skills & Expertise
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {Object.entries(skills).map(([category, skillList], index) => (
-                <motion.div
-                  key={category}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
+              {Object.entries(skills).map(([category, skillList], index) => <motion.div key={category} initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.8,
+              delay: index * 0.1
+            }} viewport={{
+              once: true
+            }}>
                   <Card className="bg-white/5 border-white/10 backdrop-blur-sm h-full">
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold mb-4 capitalize text-blue-400">
                         {category.replace(/([A-Z])/g, ' $1').trim()}
                       </h3>
                       <div className="space-y-2">
-                        {skillList.map((skill, skillIndex) => (
-                          <div key={skill} className="flex items-center justify-between">
+                        {skillList.map((skill, skillIndex) => <div key={skill} className="flex items-center justify-between">
                             <span className="text-gray-300">{skill}</span>
                             <div className="w-20 bg-gray-700 rounded-full h-2">
-                              <motion.div
-                                initial={{ width: 0 }}
-                                whileInView={{ width: `${85 + skillIndex * 2}%` }}
-                                transition={{ duration: 1, delay: 0.5 + skillIndex * 0.1 }}
-                                viewport={{ once: true }}
-                                className="bg-gradient-to-r from-blue-400 to-purple-400 h-2 rounded-full"
-                              />
+                              <motion.div initial={{
+                          width: 0
+                        }} whileInView={{
+                          width: `${85 + skillIndex * 2}%`
+                        }} transition={{
+                          duration: 1,
+                          delay: 0.5 + skillIndex * 0.1
+                        }} viewport={{
+                          once: true
+                        }} className="bg-gradient-to-r from-blue-400 to-purple-400 h-2 rounded-full" />
                             </div>
-                          </div>
-                        ))}
+                          </div>)}
                       </div>
                     </CardContent>
                   </Card>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
           </motion.div>
         </div>
@@ -231,24 +227,33 @@ const Index = () => {
       {/* Achievements Section */}
       <section id="achievements" className="py-20 bg-black/20">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }}>
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Achievements & Certifications
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              {achievements.map((achievement, index) => (
-                <motion.div
-                  key={achievement.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                >
+              {achievements.map((achievement, index) => <motion.div key={achievement.title} initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.8,
+              delay: index * 0.2
+            }} viewport={{
+              once: true
+            }}>
                   <Card className="bg-white/5 border-white/10 backdrop-blur-sm h-full hover:bg-white/10 transition-all duration-300">
                     <CardContent className="p-6 text-center">
                       <div className="text-4xl mb-4">{achievement.icon}</div>
@@ -256,8 +261,7 @@ const Index = () => {
                       <p className="text-gray-300">{achievement.description}</p>
                     </CardContent>
                   </Card>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
           </motion.div>
         </div>
@@ -266,12 +270,17 @@ const Index = () => {
       {/* Education Section */}
       <section id="education" className="py-20">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }}>
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Education
             </h2>
@@ -331,12 +340,17 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-black/20">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }}>
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Get In Touch
             </h2>
@@ -364,20 +378,12 @@ const Index = () => {
                     <div className="space-y-4">
                       <h3 className="text-2xl font-bold mb-6 text-blue-400">Connect Online</h3>
                       <div className="flex flex-col space-y-4">
-                        <a
-                          href="https://www.linkedin.com/feed/?trk=sem-ga_campid.14650114788_asid.151761418307_crid.657403558721_kw.linkedin%20login_d.c_tid.kwd-12704335873_n.g_mt.e_geo.1007796"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center space-x-3 p-3 rounded-lg bg-blue-600/20 hover:bg-blue-600/30 transition-colors"
-                        >
+                        <a href="https://www.linkedin.com/feed/?trk=sem-ga_campid.14650114788_asid.151761418307_crid.657403558721_kw.linkedin%20login_d.c_tid.kwd-12704335873_n.g_mt.e_geo.1007796" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 p-3 rounded-lg bg-blue-600/20 hover:bg-blue-600/30 transition-colors">
                           <Linkedin className="text-blue-400" size={20} />
                           <span className="text-white">LinkedIn Profile</span>
                           <ExternalLink className="text-gray-400 ml-auto" size={16} />
                         </a>
-                        <a
-                          href="mailto:03rishabh04gupta@gmail.com"
-                          className="flex items-center space-x-3 p-3 rounded-lg bg-purple-600/20 hover:bg-purple-600/30 transition-colors"
-                        >
+                        <a href="mailto:03rishabh04gupta@gmail.com" className="flex items-center space-x-3 p-3 rounded-lg bg-purple-600/20 hover:bg-purple-600/30 transition-colors">
                           <Mail className="text-purple-400" size={20} />
                           <span className="text-white">Send Email</span>
                           <ExternalLink className="text-gray-400 ml-auto" size={16} />
@@ -400,8 +406,6 @@ const Index = () => {
           </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;

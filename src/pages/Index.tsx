@@ -225,7 +225,7 @@ const Index = () => {
                     </div>
                   </div>
                   <ProfileImage
-                    src="/lovable-uploads/7211103c-4442-45be-aba2-dd813d0c1423.png"
+                    src="/lovable-uploads/863223ea-2b1b-485d-959e-ab49dc97ae87.png"
                     alt="Rishabh Gupta"
                     className="w-64 h-64 rounded-full mx-auto border-4 border-gray-600 shadow-xl object-cover"
                   />

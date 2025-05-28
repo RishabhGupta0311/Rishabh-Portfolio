@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { ProfileImage } from "@/components/ProfileImage";
 import { 
   Github, 
   Linkedin, 
@@ -223,13 +224,11 @@ const Index = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="text-center">
-                    <img 
-                      src="/lovable-uploads/7211103c-4442-45be-aba2-dd813d0c1423.png" 
-                      alt="Rishabh Gupta" 
-                      className="w-64 h-64 rounded-full mx-auto border-4 border-gray-600 shadow-xl object-cover"
-                    />
-                  </div>
+                  <ProfileImage
+                    src="/lovable-uploads/7211103c-4442-45be-aba2-dd813d0c1423.png"
+                    alt="Rishabh Gupta"
+                    className="w-64 h-64 rounded-full mx-auto border-4 border-gray-600 shadow-xl object-cover"
+                  />
                 </div>
               </CardContent>
             </Card>

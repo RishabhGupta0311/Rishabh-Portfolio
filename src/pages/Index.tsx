@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -206,6 +205,10 @@ const Index = () => {
                         <span>CGPA: 9.35</span>
                       </div>
                       <div className="flex items-center text-gray-300">
+                        <Phone className="mr-3 text-blue-400" size={20} />
+                        <span>+91 6266454844</span>
+                      </div>
+                      <div className="flex items-center text-gray-300">
                         <Mail className="mr-3 text-blue-400" size={20} />
                         <span>03rishabh04gupta@gmail.com</span>
                       </div>
@@ -222,9 +225,9 @@ const Index = () => {
                   </div>
                   <div className="text-center">
                     <img 
-                      src="/placeholder.svg" 
+                      src="/lovable-uploads/7211103c-4442-45be-aba2-dd813d0c1423.png" 
                       alt="Rishabh Gupta" 
-                      className="w-64 h-64 rounded-full mx-auto border-4 border-gray-600 shadow-xl"
+                      className="w-64 h-64 rounded-full mx-auto border-4 border-gray-600 shadow-xl object-cover"
                     />
                   </div>
                 </div>
@@ -414,6 +417,12 @@ const Index = () => {
                 <div className="mt-8 pt-6 border-t border-gray-700">
                   <h4 className="text-lg font-semibold text-gray-100 mb-4">Direct Contact</h4>
                   <div className="space-y-3">
+                    <div className="flex items-center text-gray-300">
+                      <Phone className="mr-3 text-blue-400" size={20} />
+                      <a href="tel:+916266454844" className="hover:text-blue-400">
+                        +91 6266454844
+                      </a>
+                    </div>
                     <div className="flex items-center text-gray-300">
                       <Mail className="mr-3 text-blue-400" size={20} />
                       <a href="mailto:03rishabh04gupta@gmail.com" className="hover:text-blue-400">
